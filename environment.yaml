@@ -31,5 +31,9 @@ dependencies:
     - datasets
     - git+https://github.com/openai/CLIP.git
     - open_clip_torch
+    - peft
+    - pytorch-warmup
+    - lpips
+    - git+https://github.com/ildoonet/cutmix.git
 variables:
   CACHE_NUMBER: 0
