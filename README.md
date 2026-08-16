@@ -5,7 +5,7 @@
 ![](teaser.jpg)
 
 
-> [**Inversion Circle Interpolation: Diffusion-based Image Augmentation for Data-scarce Classification**](https://arxiv.org/pdf/2408.16266)
+> [**Inversion Circle Interpolation: Diffusion-based Image Augmentation for Data-scarce Classification**](https://openaccess.thecvf.com/content/CVPR2025/papers/Wang_Inversion_Circle_Interpolation_Diffusion-based_Image_Augmentation_for_Data-scarce_Classification_CVPR_2025_paper.pdf)
 > 
 > Yanghao Wang, Long Chen               
 
@@ -41,11 +41,12 @@ bash scripts/run.sh
 If you use Diff-II in your research or wish to refer to the baseline results published here, please use the following BibTeX entry.
 
 ```BibTeX
-@article{wang2024improving,
-  title={Improving diffusion-based data augmentation with inversion spherical interpolation},
+@inproceedings{wang2025inversion,
+  title={Inversion circle interpolation: Diffusion-based image augmentation for data-scarce classification},
   author={Wang, Yanghao and Chen, Long},
-  journal={arXiv preprint arXiv:2408.16266},
-  year={2024}
+  booktitle={2025 IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages={25560--25569},
+  year={2025},
+  organization={IEEE}
 }
 ```
-
