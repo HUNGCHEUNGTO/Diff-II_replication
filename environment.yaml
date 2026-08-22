@@ -1,4 +1,4 @@
-name: diff-ii
+name: diff-ii-da
 channels:
   - pytorch
   - nvidia
@@ -20,18 +20,19 @@ dependencies:
   - nvidia::cudatoolkit
   - wandb
   - tensorboard
-  - transformers>=4.14.1
-  - diffusers
-  - accelerate
+  - transformers==4.36.2
+  - diffusers==0.25.1
+  - accelerate==0.25.0
   - xformers::xformers
   - seaborn
   - cuda-nvcc
   - pip:
+    - huggingface_hub==0.25.2
     - git+https://github.com/modestyachts/ImageNetV2_pytorch
     - datasets
     - git+https://github.com/openai/CLIP.git
     - open_clip_torch
-    - peft
+    - peft==0.7.1
     - pytorch-warmup
     - lpips
     - git+https://github.com/ildoonet/cutmix.git
