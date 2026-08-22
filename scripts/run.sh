@@ -1,8 +1,8 @@
-# We use Pet dataset as the example, you only need to change dataset name and class number for other datasets.
-export DATASET="pet"
-export CLASS_NUMBER=37
-# export DATASET="car"
-# export CLASS_NUMBER=196
+# We use the Car dataset as an example. You are free to change the dataset name and class number for other datasets.
+export DATASET="car"
+export CLASS_NUMBER=196
+# export DATASET="pet"
+# export CLASS_NUMBER=37
 # export DATASET="aircraft"
 # export CLASS_NUMBER=100
 # export DATASET="cub"
@@ -27,7 +27,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 train_classifie
     --arch="resnet50" \
     --epochs=128 \
     --batch_size=256 \
-    --lr=0.01 \
+    --lr=0.1 \
     --size=224 \
     --seed=2020 \
     --syn_p=0.5 \
@@ -71,7 +71,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 train_classifie
     --arch="resnet50" \
     --epochs=128 \
     --batch_size=256 \
-    --lr=0.01 \
+    --lr=0.1 \
     --size=224 \
     --seed=2020 \
     --syn_p=0.5 \
