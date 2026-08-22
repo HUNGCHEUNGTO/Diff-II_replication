@@ -151,9 +151,9 @@ def partial_condition(text1,text2,ini_noise,pipe,strength,condiction_scale,inver
 def generate(datasets, shot, strength, category, model_id, inversion_step, condiction_scale, ddim_inversion_dir, des_dir, expansion_rate, device):
 
     if 'imb' in datasets:
-        output_dir_dict = des_dir+datasets+'/ours_'+str(strength)+str(expansion_rate)+'/'+category
+        output_dir_dict = des_dir+datasets+'/ours_'+str(strength)+"_"+str(expansion_rate)+'/'+category
     else:
-        output_dir_dict = des_dir+datasets+'/'+shot+'/ours_'+str(strength)+str(expansion_rate)+'/'+category
+        output_dir_dict = des_dir+datasets+'/'+shot+'/ours_'+str(strength)+"_"+str(expansion_rate)+'/'+category
     mkdir(output_dir_dict)
 
     dtype = torch.float16
