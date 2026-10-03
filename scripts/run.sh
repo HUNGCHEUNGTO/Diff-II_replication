@@ -5,8 +5,8 @@
 # export CLASS_NUMBER=37
 # export DATASET="aircraft"
 # export CLASS_NUMBER=100
-export DATASET="cub"
-export CLASS_NUMBER=200
+# export DATASET="cub"
+# export CLASS_NUMBER=200
 
 export N_WORKERS=8 # 8 by default, you can change it according to your GPU memory size. For example, if you have 4 GPUs, you can set N_WORKERS=4.
 
@@ -98,3 +98,4 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 train_classifie
     --syn_dir="syn/${DATASET}/10shot/ours_0.1_5.0" \
     --datasets=$DATASET \
     --num_class=$CLASS_NUMBER \
+
