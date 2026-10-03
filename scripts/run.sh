@@ -1,24 +1,28 @@
 # We use the Car dataset as an example. You are free to change the dataset name and class number for other datasets.
-export DATASET="car"
-export CLASS_NUMBER=196
-# export DATASET="pet"
+# export DATASET="car"
+# export CLASS_NUMBER=196
+# export DATASET="pet" 
 # export CLASS_NUMBER=37
 # export DATASET="aircraft"
 # export CLASS_NUMBER=100
-# export DATASET="cub"
-# export CLASS_NUMBER=200
+export DATASET="cub"
+export CLASS_NUMBER=200
+
+export N_WORKERS=8 # 8 by default, you can change it according to your GPU memory size. For example, if you have 4 GPUs, you can set N_WORKERS=4.
 
 ## 5shot
 ### get inversion pool
 python get_inversion.py \
     --datasets=$DATASET \
     --shot='5shot' \
+    --n_workers=$N_WORKERS \
 
 ### inversion interpolation
 python interpolation_le.py \
     --strength=0.3 \
     --datasets=$DATASET \
     --shot='5shot' \
+    --n_workers=$N_WORKERS \
 
 ### train classifier
 #### resnet50

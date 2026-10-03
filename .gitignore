@@ -1,3 +1,4 @@
+__MACOSX/
 __pycache__/
 *.pyc
 *.egg-info/
@@ -12,3 +13,6 @@ wandb/
 .env
 venv/
 .venv/
+datasets
+inversions
+syn
