@@ -241,7 +241,9 @@ def main():
 
     if args.seed is not None:
         random.seed(args.seed)
+        np.random.seed(args.seed)
         torch.manual_seed(args.seed)
+        torch.cuda.manual_seed_all(args.seed)
         cudnn.deterministic = True
         warnings.warn('You have chosen to seed training. '
                       'This will turn on the CUDNN deterministic setting, '
@@ -397,12 +399,16 @@ def main_worker(local_rank, nprocs, args):
             
     print("The final acc is: ",best_acc)
     
-    f = open("./results.txt","a")
-    if args.syn_p>0:
-        f.write(args.syn_dir+": "+str(best_acc)+"\n")
+    if args.syn_p > 0:
+        tag = args.syn_dir
+    elif args.use_cutmix:
+        tag = "CutMix"
+    elif args.use_mixup:
+        tag = "Mixup"
     else:
-        f.write("No Aug: "+str(best_acc)+"\n")
-    f.close()
+        tag = "No Aug"
+    with open("./results.txt","a") as f:
+        f.write(f"{tag}: {best_acc} [{args.datasets}/{shot} {args.arch} seed={args.seed}]\n")
 
 def train(train_loader, model, criterion, optimizer, epoch, local_rank,scheduler,warmup_scheduler, args):
     batch_time = AverageMeter('Time', ':6.3f')
