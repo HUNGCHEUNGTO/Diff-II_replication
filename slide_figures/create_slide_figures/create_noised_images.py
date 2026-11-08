@@ -4,7 +4,8 @@ from PIL import Image
 from diffusers import DDPMScheduler
 
 # 1. Load the image
-reference_image = "Acadian_Flycatcher.jpg"
+reference_image = "figs/Acadian_Flycatcher.jpg"
+output_path = "figs/noised_Acadian_Flycatcher_600.jpg"
 image = Image.open(reference_image).convert("RGB")
 
 # 2. Convert image to a tensor and normalize to [-1, 1]
@@ -22,7 +23,7 @@ noise_scheduler = DDPMScheduler(num_train_timesteps=1000)
 
 # 4. Define the timestep (how much noise to add)
 # 0 = clean image, 999 = pure Gaussian noise
-timesteps = torch.tensor([100]).long() 
+timesteps = torch.tensor([600]).long() 
 
 # 5. Generate random Gaussian noise
 noise = torch.randn_like(clean_image_tensor)
@@ -38,4 +39,4 @@ noisy_image_tensor = (noisy_image_tensor / 2 + 0.5).clamp(0, 1)
 noisy_image_np = noisy_image_tensor.squeeze(0).permute(1, 2, 0).numpy()
 noisy_image_pil = Image.fromarray((noisy_image_np * 255).astype("uint8"))
 
-noisy_image_pil.save(f"noised_{reference_image}")
+noisy_image_pil.save(output_path)
