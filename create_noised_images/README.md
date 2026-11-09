@@ -1,1 +1,0 @@
-Directory /create_noised_images/ is only used to add noise to an image for demonstration purposes. It is entirely separate from /diff-ii/.
