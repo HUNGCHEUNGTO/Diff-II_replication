@@ -3,12 +3,12 @@
 # export CLASS_NUMBER=196
 # export DATASET="pet" 
 # export CLASS_NUMBER=37
-# export DATASET="aircraft"
-# export CLASS_NUMBER=100
-export DATASET="cub"
-export CLASS_NUMBER=200
+export DATASET="aircraft"
+export CLASS_NUMBER=100
+# export DATASET="cub"
+# export CLASS_NUMBER=200
 
-export N_WORKERS=8 # 8 by default, you can change it according to your GPU memory size. For example, if you have 4 GPUs, you can set N_WORKERS=4.
+export N_WORKERS=1 # 8 by default, you can change it according to your GPU memory size. For example, if you have 4 GPUs, you can set N_WORKERS=4.
 
 ## 5shot
 ### get inversion pool
@@ -26,7 +26,7 @@ python interpolation_le.py \
 
 ### train classifier
 #### resnet50
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 train_classifier.py \
+CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=$N_WORKERS train_classifier.py \
     --pretrained \
     --arch="resnet50" \
     --epochs=128 \
@@ -41,7 +41,7 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 train_classifie
     --num_class=$CLASS_NUMBER \
 
 #### vit-b/16
-CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 train_classifier.py \
+CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=$N_WORKERS train_classifier.py \
     --pretrained \
     --arch="vit_b_16" \
     --epochs=100 \

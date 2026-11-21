@@ -14,5 +14,6 @@ wandb/
 venv/
 .venv/
 datasets
-inversions
-syn
+diff-ii/syn
+diff-ii/inversions
+diff-ii/dataset
