@@ -1,3 +1,16 @@
+# Data augmentation: Diffusion models
+
+This repository aims to explore how diffusion models can help data augmentation. It first replicates the result in Diff-II (CVPR 2025) and further optimize it. Possible directions are:
+
+ - De-duplication reduces overfitting or memorization toward repeated or similar training samples.
+ - Investigate optimal the range 𝛼 of spherical interpolation. Extrapolation tends to produce noisy samples. 
+ - Optimizing how many synthetic images each class get
+ - Replace circle interpolation to barycentric interpolation
+ - Replace 2 stage denoising to suffixed denoising
+ - Clean data before training
+
+This is NOT a repository of Diff-II. 
+
 # Inversion Circle Interpolation: Diffusion-based Image Augmentation for Data-scarce Classification (CVPR 2025)
 
 **Diff-II is a novel and effective generative data augmentation method.**
