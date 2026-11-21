@@ -11,6 +11,11 @@ This repository aims to explore how diffusion models can help data augmentation.
 
 This is NOT a repository of Diff-II. 
 
+# Set up the environemnt
+Make sure your current directory is Diff-II_replication. 
+
+pip install -e . -i https://pypi.tuna.tsinghua.edu.cn/simple
+
 # Inversion Circle Interpolation: Diffusion-based Image Augmentation for Data-scarce Classification (CVPR 2025)
 
 **Diff-II is a novel and effective generative data augmentation method.**
