@@ -343,14 +343,14 @@ def main_worker(local_rank, nprocs, args):
     train_sampler = torch.utils.data.distributed.DistributedSampler(train_dataset,shuffle=True)
     train_loader = torch.utils.data.DataLoader(train_dataset,
                                                batch_size=args.batch_size,
-                                               num_workers=12,
+                                               num_workers=args.workers,
                                                pin_memory=True,
                                                sampler=train_sampler)
     
     val_sampler = torch.utils.data.distributed.DistributedSampler(val_dataset)
     val_loader = torch.utils.data.DataLoader(val_dataset,
                                              batch_size=args.batch_size,
-                                             num_workers=12,
+                                             num_workers=args.workers,
                                              pin_memory=True,
                                              sampler=val_sampler)
     

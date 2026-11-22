@@ -3,10 +3,10 @@
 # export CLASS_NUMBER=196
 # export DATASET="pet" 
 # export CLASS_NUMBER=37
-export DATASET="aircraft"
-export CLASS_NUMBER=100
-# export DATASET="cub"
-# export CLASS_NUMBER=200
+# export DATASET="aircraft"
+# export CLASS_NUMBER=100
+export DATASET="cub"
+export CLASS_NUMBER=200
 
 export N_WORKERS=1 # 8 by default, you can change it according to your GPU memory size. For example, if you have 4 GPUs, you can set N_WORKERS=4.
 
@@ -114,7 +114,7 @@ CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=$N_WORKERS train_classifier.py 
     --datasets=$DATASET \
     --num_class=$CLASS_NUMBER \
     --use_cutmix \
-    --mixup_probability=1.0
+    --mixup_probability=1.0 \
 
 
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=$N_WORKERS train_classifier.py \
@@ -148,7 +148,7 @@ CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=$N_WORKERS train_classifier.py 
     --datasets=$DATASET \
     --num_class=$CLASS_NUMBER \
     --use_mixup \
-    --mixup_probability=1.0
+    --mixup_probability=1.0 \
 
 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=$N_WORKERS train_classifier.py \
     --pretrained \
@@ -164,4 +164,4 @@ CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=$N_WORKERS train_classifier.py 
     --datasets=$DATASET \
     --num_class=$CLASS_NUMBER \
     --use_mixup \
-    --mixup_probability=1.0
+    --mixup_probability=1.0 \
