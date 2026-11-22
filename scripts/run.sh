@@ -98,3 +98,70 @@ CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 torchrun --nproc_per_node=8 train_classifie
     --syn_dir="syn/${DATASET}/10shot/ours_0.1_5.0" \
     --datasets=$DATASET \
     --num_class=$CLASS_NUMBER \
+
+# CutMix
+CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=$N_WORKERS train_classifier.py \
+    --pretrained \
+    --arch="resnet50" \
+    --epochs=128 \
+    --batch_size=256 \
+    --lr=0.1 \
+    --size=224 \
+    --seed=2020 \
+    --syn_p=0.5 \
+    --resize=256 \
+    --syn_dir="syn/${DATASET}/5shot/none \
+    --datasets=$DATASET \
+    --num_class=$CLASS_NUMBER \
+    --use_cutmix \
+    --mixup_probability=1.0
+
+
+CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=$N_WORKERS train_classifier.py \
+    --pretrained \
+    --arch="vit_b_16" \
+    --epochs=100 \
+    --batch_size=32 \
+    --lr=1e-3 \
+    --size=384 \
+    --seed=2020 \
+    --syn_p=0 \
+    --resize=440 \
+    --syn_dir="syn/${DATASET}/5shot/none" \
+    --datasets=$DATASET \
+    --num_class=$CLASS_NUMBER \
+    --use_cutmix \
+    --mixup_probability=1.0
+
+# Mixup
+CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=$N_WORKERS train_classifier.py \
+    --pretrained \
+    --arch="resnet50" \
+    --epochs=128 \
+    --batch_size=256 \
+    --lr=0.1 \
+    --size=224 \
+    --seed=2020 \
+    --syn_p=0.5 \
+    --resize=256 \
+    --syn_dir="syn/${DATASET}/5shot/none" \
+    --datasets=$DATASET \
+    --num_class=$CLASS_NUMBER \
+    --use_mixup \
+    --mixup_probability=1.0
+
+CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=$N_WORKERS train_classifier.py \
+    --pretrained \
+    --arch="vit_b_16" \
+    --epochs=100 \
+    --batch_size=32 \
+    --lr=1e-3 \
+    --size=384 \
+    --seed=2020 \
+    --syn_p=0 \
+    --resize=440 \
+    --syn_dir="syn/${DATASET}/5shot/none" \
+    --datasets=$DATASET \
+    --num_class=$CLASS_NUMBER \
+    --use_mixup \
+    --mixup_probability=1.0
